@@ -8,7 +8,7 @@ import { FormBuilder } from '@angular/forms';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
