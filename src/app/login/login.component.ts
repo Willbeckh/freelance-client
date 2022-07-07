@@ -19,9 +19,9 @@ export class LoginComponent implements OnInit {
     })
   }
   submit():void{
-    console.log(this.form.getRawValue())
+
     this.http.post('http://127.0.0.1:8000/login/',this.form.getRawValue(),{withCredentials: true} )
-    .subscribe(()=>this.router.navigate(['/']))
+    .subscribe(()=>this.router.navigate(['']))
 
   }
 

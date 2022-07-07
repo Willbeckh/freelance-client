@@ -8,7 +8,9 @@ import { LoginComponent } from './login/login.component';
 import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule,HTTP_INTERCEPTORS} from '@angular/common/http'
+import { TokenInterceptorService } from './token-interceptor.service';
+import { AuthServiceService } from './auth-service.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,11 @@ import {HttpClientModule} from '@angular/common/http'
     HttpClientModule
 
   ],
-  providers: [],
+  providers: [AuthServiceService,{
+    provide:HTTP_INTERCEPTORS,
+    useClass:TokenInterceptorService,
+    multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
