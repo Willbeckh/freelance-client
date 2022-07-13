@@ -10,12 +10,14 @@ import { TokenInterceptorService } from './token-interceptor.service';
 import { AuthServiceService } from './auth-service.service';
 import { AccountComponent } from './account/account.component';
 import { AuthModule } from './auth/auth.module';
+import { JobsComponent } from './jobs/jobs.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     AccountComponent,
+    JobsComponent,
   ],
   imports: [
     BrowserModule,
