@@ -1,6 +1,6 @@
 <div class="row">
   <div class="div main-wrapper">
-    <div class="col col-lg-6 text-content">
+    <div class="col col-lg-8 text-content">
       <div class="content p-5">
         <h2 class="mt-5 welcome-text">
           Find your first <span class="freelance-text">freelance</span> <br />
@@ -12,11 +12,76 @@
         </p>
 
         <div class="button mt-5">
-          <button class="btn btn-outline-primary btn-md">
-            Find Jobs!
+          <button class="btn btn-outline-success btn-md">
+            <a
+              href="#jobs"
+              role="button"
+              class="text-decoration-none text-light"
+              >View Jobs!</a
+            >
+            <!-- View Jobs -->
           </button>
         </div>
       </div>
     </div>
   </div>
 </div>
+<!-- jobs listing -->
+<div class="container">
+  <div id="jobs" class="jobs mt-5 p-3">
+    <div class="row d-flex justify-content-center">
+      <div
+        *ngFor="let job of obj.results"
+        class="card m-2 col-12 col-lg-3 col-md-6 col-sm-12"
+      >
+        <div *ngIf="job.status === 'Available'; else elseBlock">
+          <div class="card-body">
+            <p class="job-author">{{ job.host.name }}</p>
+            <h3 class="job-title">{{ job.name | titlecase }}</h3>
+
+            <div class="job-details d-flex justify-content-between px-1">
+              <p class="text-muted job-location">
+                <fa-icon
+                  [icon]="faLocationPin"
+                  [ngStyle]="{ color: '#000' }"
+                ></fa-icon>
+                {{ job.location | titlecase }}
+              </p>
+              <small class="text-muted"
+                ><fa-icon [icon]="faClockFour"></fa-icon>
+                {{ job.created | date }}</small
+              >
+            </div>
+            <p class="job-content">{{ job.description | slice: 0:100 }}...</p>
+            <div class="job-footer d-flex justify-content-between">
+              <small class="pill1 me-3"
+                ><fa-icon [icon]="faBuilding"></fa-icon>
+                {{ job.company }}</small
+              >
+              <small class="pill"
+                ><fa-icon [icon]="faStairs"></fa-icon>
+                {{ job.experience }}</small
+              >
+              <small class="status ms-3"
+                ><fa-icon
+                  [icon]="faFireFlameCurved"
+                  [ngStyle]="{ color: 'aqua' }"
+                ></fa-icon>
+                {{ job.status }}</small
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="response-msg">
+      <ng-template #elseBlock>
+        <div>
+          <p class="text-center">Oops no jobs available atm!</p>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>
+<!-- jobs list end -->
