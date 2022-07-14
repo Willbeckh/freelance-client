@@ -1,4 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+::selection {
+  background-color: #1aa37a;
+  color:#00eeff;
+}
+
 * {
   padding: 0;
   margin: 0;
