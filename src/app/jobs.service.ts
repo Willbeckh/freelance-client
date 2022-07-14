@@ -27,6 +27,13 @@ export class JobsService {
       .pipe(retry(1), catchError(this.errorHandler));
   }
 
+  // get job by id
+  getJob(id): Observable<any> {
+    return this.http
+      .get<any>(this.baseurl + 'jobs/' + id, this.httpOptions)
+      .pipe(retry(1), catchError(this.errorHandler));
+  }
+  
   // error handling
   errorHandler(error) {
     let errorMessage = '';
