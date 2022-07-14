@@ -13,9 +13,16 @@ import { AuthModule } from './auth/auth.module';
 import { JobsComponent } from './jobs/jobs.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { OnejobComponent } from './onejob/onejob.component';
 
 @NgModule({
-  declarations: [AppComponent, NavComponent, AccountComponent, JobsComponent],
+  declarations: [
+    AppComponent,
+    NavComponent,
+    AccountComponent,
+    JobsComponent,
+    OnejobComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -41,6 +48,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NavComponent,
     AccountComponent,
     JobsComponent,
+    OnejobComponent,
   ],
 })
 export class AppModule {}
