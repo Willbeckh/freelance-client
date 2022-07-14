@@ -20,9 +20,8 @@ export class JobsComponent implements OnInit {
 
   // get all available jobs
   getAllJobs() {
+    console.log('jobs>>', this.jobs);
     this.jobService.getJobs().subscribe((data) => {
-      console.log(this.jobs);
-
       this.jobs = data;
     });
   }
