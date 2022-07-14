@@ -1,15 +1,29 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Job } from '../job';
+import { JobsService } from '../jobs.service';
 
 @Component({
   selector: 'app-jobs',
   templateUrl: './jobs.component.html',
-  styleUrls: ['./jobs.component.css']
+  styleUrls: ['./jobs.component.css'],
 })
 export class JobsComponent implements OnInit {
+  jobs: any;
+  imageSrc = 'assets/images/dev.png';
 
-  constructor() { }
+  constructor(public jobService: JobsService, private http: HttpClient) {}
 
   ngOnInit(): void {
+    this.jobs = this.getAllJobs();
   }
 
+  // get all available jobs
+  getAllJobs() {
+    this.jobService.getJobs().subscribe((data) => {
+      console.log(this.jobs);
+
+      this.jobs = data;
+    });
+  }
 }
