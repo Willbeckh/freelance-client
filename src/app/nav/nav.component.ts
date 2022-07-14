@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { faCoffee, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../auth/auth.service';
 
@@ -10,6 +11,8 @@ import { AuthService } from '../auth/auth.service';
 export class NavComponent implements OnInit,OnDestroy {
   isAuthenticated:boolean = false 
   private userSub:Subscription
+  faSearch = faSearch
+  faCoffee = faCoffee
   constructor( private authService:AuthService ) { }
 
   ngOnInit(): void {
