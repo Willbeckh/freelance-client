@@ -11,6 +11,8 @@ import { AuthServiceService } from './auth-service.service';
 import { AccountComponent } from './account/account.component';
 import { AuthModule } from './auth/auth.module';
 import { JobsComponent } from './jobs/jobs.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { JobsComponent } from './jobs/jobs.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AuthModule
+    AuthModule,
+    FontAwesomeModule,
+    NgbModule,
 
   ],
   providers: [AuthServiceService,{
