@@ -36,6 +36,14 @@ export class JobsService {
     return this.http
       .get<any>(this.baseurl + 'jobs/' + id)
       .pipe(retry(1), catchError(this.errorHandler));
+    //
+  }
+
+  // post a job
+  postJob(jobData): Observable<any> {
+    return this.http
+      .post(this.baseurl + 'jobs/', this.httpOptions)
+      .pipe(retry(1), catchError(this.errorHandler));
   }
 
   // error handling
