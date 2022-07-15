@@ -8,14 +8,18 @@ import { catchError } from 'rxjs/operators';
 })
 export class JobsService {
   baseurl = 'http://localhost:8000/';
-  
+  // baseurl = 'https://devs-freelance.herokuapp.com/';
+
   constructor(private http: HttpClient) {}
 
   // api http headers
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      // Accept: '*/*',
+      // 'Access-Control-Allow-Origin': '*',
+      'access-control-allow-origin': '*',
+      // 'Access-Control-Allow-Headers':`
+      //   'Origin, X-Requested-With, Content-Type, Accept, Authorization',
     }),
   };
 
@@ -23,17 +27,17 @@ export class JobsService {
   // get all jobs
   getJobs(): Observable<any> {
     return this.http
-      .get<any>(this.baseurl + 'jobs/', this.httpOptions)
+      .get<any>(this.baseurl + 'jobs/')
       .pipe(retry(1), catchError(this.errorHandler));
   }
 
   // get job by id
   getJob(id): Observable<any> {
     return this.http
-      .get<any>(this.baseurl + 'jobs/' + id, this.httpOptions)
+      .get<any>(this.baseurl + 'jobs/' + id)
       .pipe(retry(1), catchError(this.errorHandler));
   }
-  
+
   // error handling
   errorHandler(error) {
     let errorMessage = '';

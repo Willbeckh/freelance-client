@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: '', component: JobsComponent },
   { path: 'profile', component: AccountComponent },
   { path: 'auth', component: AuthComponent },
-  { path: 'job', component: OnejobComponent },
+  { path: 'job/:id', component: OnejobComponent },
 ];
 
 @NgModule({

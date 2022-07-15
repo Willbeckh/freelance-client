@@ -37,7 +37,9 @@
         <div *ngIf="job.status === 'Available'; else elseBlock">
           <div class="card-body">
             <p class="job-author">{{ job.host.name }}</p>
-            <h3 class="job-title">{{ job.name | titlecase }}</h3>
+            <h3 class="job-title">
+              <a [routerLink]="['job/' + job.id]">{{ job.name | titlecase }}</a>
+            </h3>
 
             <div class="job-details d-flex justify-content-between px-1">
               <p class="text-muted job-location">
